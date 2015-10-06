@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <!-- build:js scripts/diagrams.min.js -->
+  <script src="bower_components/raphael/raphael.js"></script>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/underscore/underscore.js"></script>
+  <script src="bower_components/js-sequence-diagrams/build/sequence-diagram-min.js"></script>
+  <!-- endbuild -->
+
+
+  <h1>Index</h1>
+  <div class="diagram">
+    main->BooksCollection: fetch
+    BooksCollection->BooksCollection: events:add
+    BooksCollection->BooksIndexView: events:add
+    BooksIndexView->BooksIndexView: render
+    BooksIndexView->BooksIndexView: renderChildren
+    BooksIndexView-->BookItemView: initialize x n
+    BooksIndexView-->BookItemView: render x n
+  </div>
+
+  <h1>Create</h1>
+  <div class="diagram">
+    DOM->BooksCreateView: events:click\n[data-behavior=create-book]
+    BooksCreateView->BooksCreateView: serialize
+    BooksCreateView->BooksCollection: create
+    BooksCollection->BooksCollection: events:add
+    BooksCollection->BooksIndexView: events:add
+    BooksIndexView->BooksIndexView: render
+    BooksIndexView->BooksIndexView: renderChildren
+    BooksIndexView-->BookItemView: initialize x n
+    BooksIndexView-->BookItemView: render x n
+  </div>
+
+  <h1>Update</h1>
+  <div class="diagram">
+    DOM->BookItemView: events:click\n[data-behavior=edit-book]
+    BookItemView->BookItemView: edit
+    DOM->BookItemView: events:change input
+    BookItemView->Book: set('title', ...)
+    Book->BookItemView: events:change:title
+    BookItemView->BookItemView: render
+    DOM->BookItemView: events:click [data-behavior=save-book]
+    BookItemView->BookItemView: save
+    BookItemView->Book: save
+  </div>
+
+  <h1>Destroy</h1>
+  <div class="diagram">
+    DOM->BookItemView: events:click\n[data-behavior=destroy-book]
+    BookItemView->BookItemView: destroy
+    BookItemView->Book: destroy
+    Book->BooksCollection: events:destroy
+    BooksCollection->BooksCollection: events:remove
+    BooksCollection->BooksIndexView: events:remove
+    BooksIndexView->BooksIndexView: renderChildren
+    BooksIndexView-->BookItemView: remove x n
+    BooksIndexView-->BookItemView: initialize x n
+    BooksIndexView-->BookItemView: render x n
+  </div>
+  <script>
+    $(".diagram").sequenceDiagram({theme: 'simple'});
+  </script>
+</body>
+</html>
