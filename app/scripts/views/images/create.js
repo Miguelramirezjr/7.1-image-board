@@ -3,7 +3,7 @@ import BaseView from 'views/base-view';
 var CreateImageView = BaseView.extend({
 
   tagName: 'form',
-  className: 'create-images',
+  className: 'create-image',
 
   template: JST['images/create'],
 

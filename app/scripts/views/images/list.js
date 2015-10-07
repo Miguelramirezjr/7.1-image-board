@@ -1,5 +1,5 @@
 import CollectionView from 'views/collection-view';
-import BookItemView from 'views/books/item';
+import ImageItemView from 'views/images/item';
 
 export default CollectionView.extend({
   tagName: "ul",
@@ -12,8 +12,8 @@ export default CollectionView.extend({
   renderChildren: function(){
     var self = this;
     this.$el.html('');
-    this.collection.each(function(book){
-      var itemView = new BookItemView({model: book});
+    this.collection.each(function(image){
+      var itemView = new ImageItemView({model: image});
       self.$el.append(itemView.render().el);
     });
   }

@@ -2,14 +2,14 @@ import BaseView from 'views/base-view';
 
 export default BaseView.extend({
   tagName: 'li',
-  template: JST['books/item'],
+  template: JST['images/item'],
 
   events: {
-    'click [data-behavior=destroy-book]': 'destroy'
+    'click [data-behavior=destroy-image]': 'destroy'
   },
 
   destroy: function(){
-    this.model.destroy();  
+    this.model.destroy();
   },
 
   render: function(){

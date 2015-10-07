@@ -2,20 +2,41 @@
 @import '../../bower_components/neat/app/assets/stylesheets/neat';
 
 // Typography
-$base-font-family: $helvetica;
+// $base-font-family: $helvetica;
 
-// Colors
-$blue: #477dca;
-$dark-gray: #333;
-$medium-gray: #999;
-$light-gray: #ddd;
-$very-light-gray: #fafafa;
+// // Colors
+// $blue: #477dca;
+// $dark-gray: #333;
+// $medium-gray: #999;
+// $light-gray: #ddd;
+// $very-light-gray: #fafafa;
+//
+// $base-font-color: $dark-gray;
+// $base-background-color: $very-light-gray;
 
-$base-font-color: $dark-gray;
-$base-background-color: $very-light-gray;
+// body {
+//   background-color: $medium-gray;
+//   color: $base-font-color;
+//   font-family: $base-font-family;
+// }
 
-body {
-  background-color: $base-background-color;
-  color: $base-font-color;
-  font-family: $base-font-family;
+
+.drop {
+  margin-top: 20px;
+  background-color: #ffffff;
+  height: 200px;
+  width: 100%;
+  padding-left: 270px;
+  font-family: "Open Sans", "sans-serif";
+}
+
+.top {
+ background-color: RGBA(69, 108, 153, 1);
+ height: 100px;
+ width: 100%;
+ font-family: "Open Sans", "sans-serif";
+}
+
+.hidden {
+ display: none;
 }

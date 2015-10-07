@@ -1,20 +1,25 @@
-import BooksCollection from 'models/books-collection';
-import CreateBookView from 'views/books/create';
-import BooksListView from 'views/books/list';
+import ImagesCollection from 'models/images-collection';
+import CreateImageView from 'views/images/create';
+import ButtonView from 'views/images/button';
+import ImagesListView from 'views/images/list';
+
 
 $(document).ready(function(){
-  var books = new BooksCollection();
+  var images = new ImagesCollection();
 
-  var createBookView = new CreateBookView({collection: books});
-  $('#container').append(createBookView.render().el);
+  var buttonView = new ButtonView({collection: images});
+  $('.top').append(buttonView.render().el);
 
-  var booksListView = new BooksListView({collection: books});
-  $('#container').append(booksListView.render().el);
+  var createImageView = new CreateImageView({collection: images});
+  $('.drop').append(createImageView.render().el);
+
+  var imagesListView = new ImagesListView({collection: images});
+  $('#container').append(imagesListView.render().el);
 
   // Emulate a fetch
-  books.add([
-    {title: "JavaScript: The Good Parts", author: "Douglas Crokford"},
-    {title: "Practical Object Oriented Design in Ruby", author: "Sandi Metz"}
+  images.add([
+//    {title: "JavaScript: The Good Parts", author: "Douglas Crokford"},
+//    {title: "Practical Object Oriented Design in Ruby", author: "Sandi Metz"}
   ]);
-
-});
+//
+ });
